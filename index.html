@@ -227,6 +227,13 @@
     margin-top: 5px;
     max-width: 15ch;
   }
+  .stat-note {
+    width: 100%;
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+  }
+  .stat-note a { color: inherit; text-decoration: underline; }
 
   .chart-panel { position: relative; aspect-ratio: 1 / .92; }
   .chart-panel canvas { width: 100%; height: 100%; display: block; }
@@ -459,6 +466,7 @@
           <div class="stat"><b>708</b><span>buildings charted</span></div>
           <div class="stat"><b>284</b><span>multi‑door farm targets</span></div>
           <div class="stat"><b>$218k</b><span>largest single $/mo gap found</span></div>
+          <p class="stat-note">From the five‑suburb pilot dataset below (Inside Airbnb, Sept 2026) — <a href="#suburbs">see the survey</a>, not a live market count.</p>
         </div>
       </div>
       <div class="chart-panel">
