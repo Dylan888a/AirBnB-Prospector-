@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Dispatches to the individual checks in .githooks/. Keep this file thin.
+set -euo pipefail
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+"$DIR/check-overclaims.sh"

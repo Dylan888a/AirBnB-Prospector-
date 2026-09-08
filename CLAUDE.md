@@ -6,6 +6,8 @@ This repo deploys a public page via GitHub Pages. Two portfolio-wide rules apply
 
 Any meaningful public claim — licensing, reviews, service regions, tax figures, verification, ratings, office locations, privacy promises, performance/coverage numbers — needs: **source → owner → enforcement/test → live proof → review date**. If a claim can't be proven end-to-end, narrow the wording instead of letting it sound confident. A number pulled from one demo/sample dataset run must say so (dataset + date) — it must not read as a live or ongoing guarantee.
 
+**Enforced by `.githooks/check-overclaims.sh`** — a pre-commit hook blocking commits to `index.html`/`README.md`/`*.landing.html` that add common overclaim phrasing. One-time setup per clone: `git config core.hooksPath .githooks`. Add `claim-ok:` on a flagged line once reviewed, or use `git commit --no-verify` to bypass.
+
 ## 🟢 Repository-Wide Business Fact Contract
 
 Facts that could drift (region/suburb counts, pricing, coverage) live in one canonical source. Don't hardcode a second copy of a fact that already exists elsewhere (code, JSON-LD, lead magnets, guides) — reference it instead, so stale numbers can't be reintroduced later.
