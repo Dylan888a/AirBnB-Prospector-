@@ -113,6 +113,13 @@
 
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
 
+  .reference-notice { border-bottom: 1px solid var(--line); background: var(--paper-2); padding: 22px 0; }
+  .reference-notice p { margin: 0; }
+  .reference-notice p + p { margin-top: 8px; }
+  .reference-notice strong { color: var(--ink); }
+  .reference-notice .access-note { color: var(--ink-soft); font-size: 13px; }
+  .reference-notice a, .note-card a { color: var(--water); }
+
   /* ── header ── */
   header.site {
     position: relative;
@@ -437,6 +444,17 @@
     .closing .wrap { grid-template-columns: 1fr; }
     section { padding: 56px 0; }
   }
+  @media (max-width: 480px) {
+    .wrap { padding-left: 18px; padding-right: 18px; }
+    header.site .wrap { flex-wrap: wrap; }
+    .brandmark { min-width: 0; }
+    .brandmark .word { font-size: 12px; letter-spacing: .07em; }
+    .hub-tag { white-space: normal; }
+    .steps { grid-template-columns: 1fr; }
+    .hero-ctas { align-items: flex-start; }
+    .stat-strip { column-gap: 20px; }
+    .reference-notice a { overflow-wrap: anywhere; }
+  }
   @media (prefers-reduced-motion: reduce) {
     * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
   }
@@ -460,14 +478,22 @@
 
 <main>
 
+  <aside class="reference-notice" aria-label="Project status">
+    <div class="wrap">
+      <p><strong>Historical pilot — September 2026.</strong> This page preserves a research presentation. It does not import listings, check current market data or send leads.</p>
+      <p><a href="https://github.com/Dylan888a/harborside-prospector">Continue with the maintained Harborside Prospector project →</a></p>
+      <p class="access-note">The maintained repository requires GitHub access. The survey below remains available as a historical reference.</p>
+    </div>
+  </aside>
+
   <section class="hero">
     <div class="wrap">
       <div>
         <p class="eyebrow">Sydney harbour suburbs — co-hosting prospecting</p>
         <h1 class="display">The buildings worth&nbsp;knocking on, <em>already charted.</em></h1>
-        <p class="lede">Harborside Prospector turns public short-term rental listings into a scored, ready‑to‑work pipeline of co‑hosting leads — the multi‑door buildings and under‑occupied owners worth a BDM's time first.</p>
+        <p class="lede">This pilot illustrates a CSV-based approach to researching short-term rental buildings and possible co-hosting opportunities. Its survey results describe the September 2026 dataset, not today's market.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#suburbs">See the current suburbs →</a>
+          <a class="btn btn-primary" href="#suburbs">See the pilot survey →</a>
           <a class="btn-quiet" href="#how">How the scoring works ↓</a>
         </div>
         <div class="stat-strip">
@@ -479,7 +505,7 @@
       </div>
       <div class="chart-panel">
         <canvas id="harbourChart" aria-label="Chart plotting the five surveyed suburbs by listing volume and location" role="img"></canvas>
-        <span class="chart-caption">Fig. 1 — surveyed clusters, inner harbour</span>
+        <span class="chart-caption">Fig. 1 — pilot clusters · <a href="#suburbs">survey details</a></span>
       </div>
     </div>
   </section>
@@ -523,8 +549,8 @@
         </div>
         <div class="step">
           <span class="n">06 · EXPORT</span>
-          <h3>Push to Airtable</h3>
-          <p>The current view lands directly in the Prospecting base, staged and ready to work.</p>
+          <h3>Export the public shortlist</h3>
+          <p>In the maintained tool, export public research separately. Add confirmed owner details only in the approved CRM; this reference page sends nothing.</p>
         </div>
       </div>
     </div>
@@ -534,7 +560,7 @@
     <div class="wrap">
       <div class="spotlight">
         <div class="spotlight-copy">
-          <p class="eyebrow">New — answer it on the spot</p>
+          <p class="eyebrow">Pilot example — address estimate</p>
           <h2 class="display">"What would this address earn?" Answered mid‑call.</h2>
           <p class="section-lead">Type any address into the tool and it finds the nearest buildings already charted, then blends their rate and occupancy into a rough estimate — right while you're on the phone with an owner.</p>
           <ul class="spotlight-list">
@@ -680,9 +706,9 @@
         <p>The survey totals above are a historical research snapshot. Confirm current listing status, owner details, permissions and the underlying income evidence before using a record for outreach.</p>
       </div>
       <div class="note-card">
-        <p class="tag">Extension of the BDM Hub</p>
-        <p>Harborside Prospector runs against any Sydney suburb — it isn't limited to the five above.</p>
-        <p>Ask your business development manager to run a fresh survey for your patch, or to look up a specific address on the spot.</p>
+        <p class="tag">Maintained project</p>
+        <p>Current CSV research and calculation rules are maintained in <a href="https://github.com/Dylan888a/harborside-prospector">Harborside Prospector</a> (GitHub access required).</p>
+        <p>Use a current dataset in that tool and review its evidence limits before preparing a shortlist.</p>
       </div>
     </div>
   </section>
@@ -808,6 +834,8 @@
       ctx.fillStyle = brass;
       ctx.fill();
 
+      // The survey table carries the names and volumes; avoid overlapping canvas labels on phones.
+      if (window.matchMedia('(max-width: 480px)').matches) return;
       ctx.font = '600 11px ' + getComputedStyle(document.body).fontFamily;
       ctx.fillStyle = ink;
       ctx.textAlign = p.x > w * 0.62 ? 'right' : (p.x < w * 0.38 ? 'left' : 'center');
@@ -833,3 +861,4 @@
 </script>
 </body>
 </html>
+
