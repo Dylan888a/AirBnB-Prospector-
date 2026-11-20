@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Harborside Prospector: a dated Sydney pilot survey and overview of CSV-based short-stay property research.">
-<title>Harborside Prospector — Co-hosting Lead Engine</title>
+<title>Harborside Prospector — September 2026 pilot</title>
 <style>
   @font-face {
     font-family: 'Spectral';
@@ -142,6 +142,10 @@
     white-space: nowrap;
   }
   .hub-tag b { color: var(--ink); font-weight: 600; }
+
+  .pilot-notice { padding: 20px 0; border-bottom: 1px solid var(--line); background: var(--brass-soft); }
+  .pilot-notice p { margin: 0; }
+  .pilot-notice p + p { margin-top: 6px; color: var(--ink-soft); }
 
   /* ── hero ── */
   .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
@@ -437,6 +441,10 @@
     .closing .wrap { grid-template-columns: 1fr; }
     section { padding: 56px 0; }
   }
+  @media (max-width: 560px) {
+    header.site .wrap { flex-wrap: wrap; }
+    .hub-tag { white-space: normal; }
+  }
   @media (prefers-reduced-motion: reduce) {
     * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
   }
@@ -458,6 +466,13 @@
   </div>
 </header>
 
+<aside class="pilot-notice" aria-label="Historical pilot status">
+  <div class="wrap">
+    <p><strong>Historical pilot — September 2026</strong></p>
+    <p>This page preserves a past short-stay prospecting concept and survey. Its figures and workflow are historical. Ask your business development manager for current property research and the approved CRM handoff.</p>
+  </div>
+</aside>
+
 <main>
 
   <section class="hero">
@@ -467,7 +482,7 @@
         <h1 class="display">The buildings worth&nbsp;knocking on, <em>already charted.</em></h1>
         <p class="lede">Harborside Prospector turns public short-term rental listings into a scored, ready‑to‑work pipeline of co‑hosting leads — the multi‑door buildings and under‑occupied owners worth a BDM's time first.</p>
         <div class="hero-ctas">
-          <a class="btn btn-primary" href="#suburbs">See the current suburbs →</a>
+          <a class="btn btn-primary" href="#suburbs">View the September 2026 pilot →</a>
           <a class="btn-quiet" href="#how">How the scoring works ↓</a>
         </div>
         <div class="stat-strip">
@@ -523,8 +538,8 @@
         </div>
         <div class="step">
           <span class="n">06 · EXPORT</span>
-          <h3>Push to Airtable</h3>
-          <p>The current view lands directly in the Prospecting base, staged and ready to work.</p>
+          <h3>Hand off to the CRM</h3>
+          <p>For current work, export public research and save verified owner details and follow-up manually in the approved CRM. This historical page does not send records.</p>
         </div>
       </div>
     </div>
